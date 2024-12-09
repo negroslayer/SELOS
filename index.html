@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>TEAM FIGHT TACTICS</header>
+    <div class="a">
+        <input type="text" placeholder="USERNAME" id="sign" required>
+    </div>
+    <div class="b">
+        <input type="password" placeholder="PASSWORD" id="pass" required>
+    </div>
+    <div class="btn">
+    
+        <button onclick="signup()">SIGN UP</button>
+        <button onclick="LogIn()">LOG IN</button>
+    <div>    
+
+    
+
+
+        
+
+        
+ 
+
+
+
+
+
+
+</body>
+</html>
+
+<style>
+    body{
+        background-image: linear-gradient(blue,black);
+        background-repeat: no-repeat;
+        height: 100vh;
+        background-image: url(oke.avif);
+        background-repeat: no-repeat;   
+    }
+    .a{
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+        border-radius: 20px;
+
+    }
+    header{
+        text-align: center;
+        font-size: 50px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-style: oblique;
+
+
+    }
+    .b{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        
+    
+    }
+
+    .btn{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;        
+        margin: 10px;
+
+
+    }
+ 
+</style>
+
+<script>
+    function signup(){
+        const name= document.getElementById("sign").value
+        const pass= document.getElementById("pass").value
+
+        if(name &&pass !==""){
+            const data=JSON.parse(localStorage.getItem("data"))||[];
+            data.push({
+                username:name,
+                password:pass
+            })
+            localStorage.setItem("data",JSON.stringify(data));
+            alert("SIGNED IN!!")
+            console.log(name,pass);
+        }
+        else{
+            alert("HAHAAH NEGRO")
+        }
+    }
+
+    function LogIn(){
+        const name2= document.getElementById("sign").value;
+        const pass2= document.getElementById("pass").value;
+
+        const users=JSON.parse(localStorage.getItem("data"))||[];
+        const user=users.find(user=>user.sign===name2&&user.pass===pass2);
+        if (users){
+            alert("you logged in");
+            console.log("User:",user)
+        }
+        else{
+            alert("wrong username or password OK KALANG>>>???")
+            console.log("err")
+        }
+
+    }
+
+
+
+</script>
